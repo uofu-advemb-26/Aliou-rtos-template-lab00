@@ -20,6 +20,7 @@ if (DEFINED PICO_SDK_PATH)
 elseif (DEFINED ENV{PICO_SDK_PATH})
 # Defined in an environment variable
     set(PICO_SDK_PATH $ENV{PICO_SDK_PATH})
+    
 else()
 # Use the submodule
     set(PICO_SDK_PATH lib/pico-sdk)

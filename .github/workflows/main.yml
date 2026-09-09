@@ -17,18 +17,12 @@ jobs:
       - name: Clean workspace
         run: |
           echo "Cleaning up previous run"
-          rm -rf "${{ github.workspace }}/build"
           rm -rf "${{ github.workspace }}"
           mkdir -p "${{ github.workspace }}"
 
       - uses: actions/checkout@v3
         with:
           path: ${{github.workspace}}/source
-
-      - name: Install picotool build dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y libusb-1.0-0-dev pkg-config build-essential
 
       - name: Create Build Environment
         # Some projects don't allow in-source building, so create a separate build directory
