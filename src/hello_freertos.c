@@ -27,6 +27,7 @@ void blink_task(__unused void *params) {
         cyw43_arch_gpio_put(CYW43_WL_GPIO_LED_PIN, on);
         if (count++ % 11) on = !on;
         vTaskDelay(1000); // 1 seconds
+        // Triggering a fresh build check
     }
 }
 
