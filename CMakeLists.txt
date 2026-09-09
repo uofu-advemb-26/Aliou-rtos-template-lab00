@@ -60,6 +60,9 @@ include(unity.cmake)
 project(myproject C CXX ASM)
 
 # These are some macros from the pico SDK that do some setup.
+set(PICOTOOL_FORCE_FETCH_FROM_GIT ON)
+set(PICOTOOL_FETCH_FROM_GIT_PATH "${CMAKE_CURRENT_LIST_DIR}/../picotool-cache")
+
 pico_sdk_init()
 
 # This sets a preprocessor value for use in our code.
