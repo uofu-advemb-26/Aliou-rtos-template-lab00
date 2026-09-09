@@ -4,23 +4,11 @@ if(WIN32)
 else()
     set(USERHOME $ENV{HOME})
 endif()
-set(sdkVersion 2.0.0)
-set(toolchainVersion 13_2_Rel1)
- set(picotoolVersion 2.0.0)
-
-# Change the version from 2.0.0 to 2.3.0
- #set(picotoolVersion 2.3.0)
-
- # Tell the Pico SDK exactly which version to fetch from GitHub automatically
-set(PICOTOOL_FORCE_FETCH_FROM_GIT ON)
-# set(PICOTOOL_FETCH_FROM_GIT_TAG "2.0.0")
-
 if (DEFINED PICO_SDK_PATH)
 # Already defined, e.g. -D flag
 elseif (DEFINED ENV{PICO_SDK_PATH})
 # Defined in an environment variable
     set(PICO_SDK_PATH $ENV{PICO_SDK_PATH})
-
 else()
 # Use the submodule
     set(PICO_SDK_PATH lib/pico-sdk)
@@ -72,12 +60,7 @@ include(unity.cmake)
 project(myproject C CXX ASM)
 
 # These are some macros from the pico SDK that do some setup.
-set(PICOTOOL_FETCH_FROM_GIT_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../picotool-cache")
-
 pico_sdk_init()
-
-
-
 
 # This sets a preprocessor value for use in our code.
 add_compile_definitions(
