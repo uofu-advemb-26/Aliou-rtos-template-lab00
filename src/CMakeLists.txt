@@ -32,9 +32,9 @@ endif()
 pico_add_extra_outputs(hello_freertos)
 
 # Point CMake to your local workspace picotool folder
- set(picotool_DIR "${CMAKE_CURRENT_SOURCE_DIR}/lib/picotool")
+ # set(picotool_DIR "${CMAKE_CURRENT_SOURCE_DIR}/lib/picotool")
 # tell the SDK exactly where the local source repository lives
-# set(PICOTOOL_FETCH_FROM_GIT_PATH "${CMAKE_CURRENT_SOURCE_DIR}/lib/picotool")
+ # set(PICOTOOL_FETCH_FROM_GIT_PATH "${CMAKE_CURRENT_SOURCE_DIR}/lib/picotool")
 
 
 find_program(OPENOCD openocd)

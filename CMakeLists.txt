@@ -20,7 +20,7 @@ if (DEFINED PICO_SDK_PATH)
 elseif (DEFINED ENV{PICO_SDK_PATH})
 # Defined in an environment variable
     set(PICO_SDK_PATH $ENV{PICO_SDK_PATH})
-    
+
 else()
 # Use the submodule
     set(PICO_SDK_PATH lib/pico-sdk)
@@ -72,7 +72,10 @@ include(unity.cmake)
 project(myproject C CXX ASM)
 
 # These are some macros from the pico SDK that do some setup.
+set(PICOTOOL_FETCH_FROM_GIT_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../picotool-cache")
+
 pico_sdk_init()
+
 
 
 

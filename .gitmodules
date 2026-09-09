@@ -20,7 +20,3 @@
 [submodule "lib/FreeRTOS-Kernel"]
 	path = lib/FreeRTOS-Kernel
 	url = git@github.com:FreeRTOS/FreeRTOS-Kernel.git
-[submodule "lib/lib/picotool"]
-	path = lib/lib/picotool
-	url = https://github.com/raspberrypi/picotool.git
-	branch = master
