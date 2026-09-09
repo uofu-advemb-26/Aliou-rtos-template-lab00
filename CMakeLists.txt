@@ -6,7 +6,14 @@ else()
 endif()
 set(sdkVersion 2.0.0)
 set(toolchainVersion 13_2_Rel1)
-set(picotoolVersion 2.0.0)
+# set(picotoolVersion 2.0.0)
+
+# Change the version from 2.0.0 to 2.3.0
+set(picotoolVersion 2.3.0)
+
+#Force the SDK to build your clean local submodule copy
+set(PICOTOOL_FETCH_FROM_GIT_PATH "${CMAKE_CURRENT_SOURCE_DIR}/lib/picotool")
+
 if (DEFINED PICO_SDK_PATH)
 # Already defined, e.g. -D flag
 elseif (DEFINED ENV{PICO_SDK_PATH})
@@ -64,6 +71,8 @@ project(myproject C CXX ASM)
 
 # These are some macros from the pico SDK that do some setup.
 pico_sdk_init()
+
+
 
 # This sets a preprocessor value for use in our code.
 add_compile_definitions(
