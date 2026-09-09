@@ -23,7 +23,7 @@ jobs:
       - uses: actions/checkout@v3
         with:
           path: ${{github.workspace}}/source
-          
+
       - name: Install picotool build dependencies
         run: |
           sudo apt-get update
@@ -53,7 +53,11 @@ jobs:
         shell: bash
         # Execute the build.  You can specify a specific target with "--target <NAME>"
         run: cmake --build ./build --config $BUILD_TYPE --parallel $(nproc)
-
+      - name: Debug picotool cache
+        if: always()
+        run: |
+          echo "=== picotool-cache contents ==="
+          find ${{github.workspace}}/../picotool-cache -type f 2>&1 || echo "Directory does not exist"
       - name: Flash
         # This follows the convention of where we put tests, but it can be anything
         working-directory: ${{github.workspace}}/build/test
