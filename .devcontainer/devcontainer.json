@@ -1,0 +1,30 @@
+{
+  "name": "Pico Dev Container",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.cpptools",
+        "ms-vscode.cmake-tools"
+      ]
+    }
+  },
+  "containerEnv": {
+    "PICO_SDK_PATH": "/tmp/pico-sdk",
+    //"PICO_SDK_PATH": "${containerWorkspaceFolder}/lib/pico-sdk",
+    "FREERTOS_PATH": "${containerWorkspaceFolder}/lib/freertos",
+    "FREERTOS_KERNEL_PATH": "${containerWorkspaceFolder}/lib/FreeRTOS-Kernel",
+    "UNITY_PATH": "${containerWorkspaceFolder}/lib/unity"
+  },
+    // This creates a permanent virtual hard drive cache inside Docker
+  "mounts": [
+    "source=pico-sdk-cache,target=/tmp/pico-sdk,type=volume"
+  ],
+  "postCreateCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}"
+}
+
